@@ -1,0 +1,9 @@
+
+<div class="todo">
+<app-header
+(valueEmit)="emittedValue($event)"></app-header>
+<app-to-do-list
+[allTasks]="allTasks"
+></app-to-do-list>
+<app-edit-to-do></app-edit-to-do>
+</div>
