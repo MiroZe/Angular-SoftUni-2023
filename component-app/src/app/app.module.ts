@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
-import { EditToDoComponent } from './edit-to-do/edit-to-do.component';
+
 
 
 @NgModule({
@@ -13,7 +13,7 @@ import { EditToDoComponent } from './edit-to-do/edit-to-do.component';
     AppComponent,
     HeaderComponent,
     ToDoListComponent,
-    EditToDoComponent,
+   
   
     
   ],
