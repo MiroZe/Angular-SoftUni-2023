@@ -6,19 +6,26 @@ import { AppComponent } from './app.component';
 import { ThemesComponent } from './themes/themes.component';
 import { PostsComponent } from './posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MainComponent } from './main/main.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThemesComponent,
-    PostsComponent
+    PostsComponent,
+    MainComponent,
+
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CoreModule
 
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })
