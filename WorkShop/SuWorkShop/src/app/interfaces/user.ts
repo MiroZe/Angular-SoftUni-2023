@@ -12,3 +12,7 @@ export interface User {
     posts : Post;
 
 }
+
+export interface DummyUser{
+    name: string
+}

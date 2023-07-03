@@ -79,3 +79,8 @@ button {
 button:hover {
     cursor: pointer;
 }
+
+
+main {
+    width: 50%;
+}

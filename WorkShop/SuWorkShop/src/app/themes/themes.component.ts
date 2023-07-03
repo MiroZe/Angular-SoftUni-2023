@@ -9,7 +9,8 @@ import { Theme } from '../interfaces/theme';
 })
 export class ThemesComponent implements OnInit{
 
-  themeList : Theme[] | null = []
+  themeList : Theme[] | null = [];
+  isLoaded: boolean = true
 
   constructor(private apiService: ApiService) {}
 
@@ -17,7 +18,8 @@ export class ThemesComponent implements OnInit{
   ngOnInit() : void {
     this.apiService.loadThemes().subscribe( {
       next: (value)=> 
-        this.themeList = value,
+        {this.themeList = value
+        this.isLoaded = false},
       error: (error) => console.log(error)
       
   })
