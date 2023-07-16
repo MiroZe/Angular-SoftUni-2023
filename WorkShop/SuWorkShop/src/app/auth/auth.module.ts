@@ -5,6 +5,11 @@ import { RegisterComponent } from './register/register.component';
 
 import { ProfileComponent } from './profile/profile.component';
 import { LogoutComponent } from './logout/logout.component';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
+
+
 
 
 
@@ -17,6 +22,10 @@ import { LogoutComponent } from './logout/logout.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    RouterModule,
+    SharedModule
+  
    
   ],
   exports: [

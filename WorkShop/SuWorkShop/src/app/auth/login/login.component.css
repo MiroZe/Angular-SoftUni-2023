@@ -43,6 +43,7 @@ form.login, form.register {
     margin-top: 1.5rem;
     width: 60%;
     outline: none;
+    background-color:#007bffc4 ;
 }
 
 .login i, .register i {
@@ -55,7 +56,7 @@ form.login, form.register {
 }
 
 .login a, .register a {
-    color: #007bff;
+    color: #007bffc4;
 }
 
 .login a:hover, .register a:hover {

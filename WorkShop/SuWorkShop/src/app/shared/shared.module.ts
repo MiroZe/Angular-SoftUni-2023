@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { AppEmailDirective } from './validators/email.directive';
 
 
 
 @NgModule({
   declarations: [
-    SpinnerComponent
+    SpinnerComponent,
+    AppEmailDirective
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    SpinnerComponent
+    SpinnerComponent,
+    AppEmailDirective
   ]
 
 })
