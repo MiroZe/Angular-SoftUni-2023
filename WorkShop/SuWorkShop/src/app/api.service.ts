@@ -24,4 +24,8 @@ export class ApiService {
   loadPosts(limit? : number) {
     return this.httpClient.get<Post[]>(`${apiURL}/posts${limit? `?limit=${limit}` : ''}`)
   }
+
+  loadOneTheme(id: string) {
+    return this.httpClient.get<Theme>(`${apiURL}/themes/${id}`)
+  }
 }

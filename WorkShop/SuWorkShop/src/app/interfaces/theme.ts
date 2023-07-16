@@ -6,7 +6,7 @@ export interface Theme {
     themeName: string;
     subscribers: string[];
     userId: User;
-    posts: string[];
+    posts: any;
     created_at: string;
     _v: number
 

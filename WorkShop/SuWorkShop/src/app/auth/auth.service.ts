@@ -6,11 +6,37 @@ import { DummyUser } from '../interfaces/user';
 })
 export class AuthService {
 
-  user : DummyUser | null = null
+  user : DummyUser | undefined;
 
-  get isLoggedIn() {
-    return this.user !== null
+  get isLoggedIn() :boolean {
+    return !!this.user
   }
 
-  constructor() { }
+  constructor() { 
+  try {
+    const lsUser = localStorage.getItem('user') || ''
+    this.user = JSON.parse(lsUser) 
+  } catch (error) {
+    this.user = undefined
+  }
+
+}
+
+login() :void {
+  this.user = {
+    email: 'johnDoe@gmail.com',
+    firstName: 'John',
+    phone: '08844321321',
+    password: 'hkjhgggkjfas'
+  }
+  localStorage.setItem('user', JSON.stringify(this.user))
+}
+logout() :void{ 
+  this.user = undefined
+  localStorage.removeItem('user')
+}
+
+
+ 
+
 }

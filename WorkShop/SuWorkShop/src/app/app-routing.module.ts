@@ -10,6 +10,7 @@ import { ProfileComponent } from './auth/profile/profile.component';
 import { NewThemeComponent } from './new-theme/new-theme.component';
 import { ThemeDetailsComponent } from './theme-details/theme-details.component';
 import { LogoutComponent } from './auth/logout/logout.component';
+import { AuthGuard } from './guards/authGuard';
 
 
 const routes: Routes = [
@@ -25,11 +26,12 @@ const routes: Routes = [
     component: ThemesComponent,
   },
   {
-    path: 'themes/:id',
+    path: 'themes/:themeId',
     component: ThemeDetailsComponent,
   },
   {
     path: 'new-theme',
+    canActivate: [AuthGuard],
     component: NewThemeComponent,
   },
   {

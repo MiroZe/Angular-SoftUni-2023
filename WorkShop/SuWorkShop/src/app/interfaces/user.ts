@@ -14,5 +14,9 @@ export interface User {
 }
 
 export interface DummyUser{
-    name: string
+    email: string;
+    firstName: string;
+    phone: string;
+    password: string;
+
 }

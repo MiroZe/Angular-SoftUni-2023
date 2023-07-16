@@ -5,15 +5,13 @@ import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  constructor(private router: Router, private authService: AuthService) {}
 
-  constructor(private router:Router, private authService: AuthService){
-
-    this.authService.user  = { name : 'John Doe'}
-    this.router.navigate(['/'])
-
-    }
+  login(email:string, password:string): void {
+    this.authService.login();
+    this.router.navigate(['/']);
   }
-
+}
