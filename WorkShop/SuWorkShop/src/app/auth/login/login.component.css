@@ -81,6 +81,6 @@ p.error {
     padding-top: 0;
 }
 
-.input-error {
+.ng-invalid {
     border-left-color: red;
 }

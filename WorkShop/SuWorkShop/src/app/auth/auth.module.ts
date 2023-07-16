@@ -5,7 +5,7 @@ import { RegisterComponent } from './register/register.component';
 
 import { ProfileComponent } from './profile/profile.component';
 import { LogoutComponent } from './logout/logout.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 
@@ -24,7 +24,8 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     FormsModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   
    
   ],
