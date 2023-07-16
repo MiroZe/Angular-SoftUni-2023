@@ -20,7 +20,7 @@ export class LoginComponent {
       return;
     }
 
-    // this.authService.login();
-    // this.router.navigate(['/']);
+     this.authService.login();
+     this.router.navigate(['/']);
   }
 }

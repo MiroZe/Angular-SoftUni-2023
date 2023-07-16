@@ -29,7 +29,8 @@ export class RegisterComponent {
 
 
   register() {
-    console.log(this.registerForm.value);
+    if(this.registerForm.invalid) return;
+    
     
   }
 

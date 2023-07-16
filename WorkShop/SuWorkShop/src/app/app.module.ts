@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { NewThemeComponent } from './new-theme/new-theme.component';
 import { ThemeDetailsComponent } from './theme-details/theme-details.component';
 import { AuthModule } from './auth/auth.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -37,7 +38,8 @@ import { AuthModule } from './auth/auth.module';
     HttpClientModule,
     CoreModule,
     SharedModule,
-    AuthModule
+    AuthModule,
+    FormsModule
     
     
 
