@@ -18,7 +18,11 @@ export class ProfileComponent {
   isEditMode : boolean = true;
   domains = DEFAULT_EMAIL_DOMAINS
 
-  profileDetails! : Profile 
+  profileDetails: Profile = {
+    username: "John",
+    email: "john.doe@gmail.com",
+    tel: "123 123 123",
+  };
 
 
 
