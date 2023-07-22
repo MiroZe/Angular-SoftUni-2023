@@ -19,8 +19,12 @@ export class LoginComponent {
     if(!form.valid) {
       return;
     }
+    const {email, password} = form.value
 
-     this.authService.login();
-     this.router.navigate(['/']);
-  }
+     this.authService.login(email,password).subscribe(user => {
+      
+      this.router.navigate(['/'])
+     })
+     
+}
 }

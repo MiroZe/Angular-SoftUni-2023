@@ -4,15 +4,15 @@
     <ng-container *ngIf="isEditMode">
         <div class="flex">
             <p>Username: </p>
-            <p>{{profileDetails.username}}</p>
+            <p>{{currentUser!.username}}</p>
         </div>
         <div class="flex">
             <p>Email: </p>
-            <p>{{profileDetails.email}}</p>
+            <p>{{currentUser!.email}}</p>
         </div>
         <div class="flex">
             <p>Phone: </p>
-            <p>{{profileDetails.tel}}</p>
+            <p>{{currentUser!.tel}}</p>
         </div>
         <button class="edit-button" (click)="toggelMode()">Edit</button>
     </ng-container>
@@ -38,7 +38,6 @@
                 <input type="email" 
                 name="email" 
                 id="email" 
-                [value]="profileDetails.username"
                 ngModel
                 #emailInput="ngModel"
                 required

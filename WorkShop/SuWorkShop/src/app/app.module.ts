@@ -14,6 +14,8 @@ import { NewThemeComponent } from './new-theme/new-theme.component';
 import { ThemeDetailsComponent } from './theme-details/theme-details.component';
 import { AuthModule } from './auth/auth.module';
 import { FormsModule } from '@angular/forms';
+import { AuthInterceptorProvider } from './core/auth.interceptor';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 
 
@@ -27,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     NewThemeComponent,
     ThemeDetailsComponent,
+    AuthenticateComponent,
   
     
 
@@ -38,14 +41,13 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     CoreModule,
     SharedModule,
-    AuthModule,
     FormsModule
     
     
 
   ],
   
-  providers: [],
+  providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

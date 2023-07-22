@@ -11,16 +11,15 @@ import { NewThemeComponent } from './new-theme/new-theme.component';
 import { ThemeDetailsComponent } from './theme-details/theme-details.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { AuthGuard } from './guards/authGuard';
-
+import { ErrorComponent } from './core/error/error.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-   // redirectTo: '/home',
-   component: HomeComponent
-  }
-  ,
+    // redirectTo: '/home',
+    component: HomeComponent,
+  },
   {
     path: 'themes',
     component: ThemesComponent,
@@ -31,17 +30,15 @@ const routes: Routes = [
   },
   {
     path: 'new-theme',
-    canActivate: [AuthGuard],
     component: NewThemeComponent,
   },
   {
+    path: 'error',
+    component: ErrorComponent,
+  },
+  {
     path: 'auth',
-    children: [
-      { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent },
-      { path: 'profile', component: ProfileComponent },
-      { path: 'logout', component: LogoutComponent },
-    ],
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
 
   {
