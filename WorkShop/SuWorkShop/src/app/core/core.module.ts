@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { ErrorComponent } from './error/error.component';
+import { MessageInterceptorProvider } from './error-handler.interceptor';
 
 
 
@@ -28,6 +29,6 @@ import { ErrorComponent } from './error/error.component';
     NotFoundPageComponent,
     ErrorComponent
   ],
-  providers: []
+  providers: [MessageInterceptorProvider]
 })
 export class CoreModule { }

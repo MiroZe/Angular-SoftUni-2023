@@ -1,17 +1,17 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { DummyUser, User } from '../interfaces/user';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Subscription, catchError, filter, of, tap } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription, catchError, filter, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService implements OnDestroy {
 
-  private user$$ = new BehaviorSubject <null | undefined | User >(undefined)
-  user$ = this.user$$.asObservable().pipe(filter((val) : val is User | null  => val != undefined))
+  private user$$ = new BehaviorSubject < undefined | User >(undefined)
+  public user$ = this.user$$.asObservable()
 
-  user! : User | null;
+  user! : User |undefined
 
   get isLoggedIn() :boolean {
     return !!this.user
@@ -31,7 +31,7 @@ login(email: string, password: string) {
 }
 logout() { 
  
-  return this.http.post<void>('/api/logout', {}).pipe(tap(()=> this.user$$.next(null)))
+  return this.http.post<void>('/api/logout', {}).pipe(tap(()=> this.user$$.next(undefined)))
  
 }
 
@@ -40,14 +40,8 @@ return this.http.post<User>('/api/register', {username,email,password,rePassword
 .pipe(tap(user=> this.user$$.next(user)))
 }
 
-getUser()  {
-  return this.http.get<User>('/api/users/profile')
-  .pipe(tap(user=> this.user$$.next(user)),
-  catchError((err)=> {
-    this.user$$.next(null)
-    return of(err)
-  }))
-  
+getProfile$(): Observable<User> {
+  return this.http.get<User>('/api/users/profile', { withCredentials: true })
 }
 
 updateProfile(username: string, email:string, tel?: string) {
@@ -56,6 +50,10 @@ updateProfile(username: string, email:string, tel?: string) {
     tap(user => this.user$$.next(user))
     
   )
+}
+
+getUser() {
+  return this.http.get<User>('/api/users/profile').pipe(tap((user)=> this.user$$.next(user)))
 }
 
 ngOnDestroy(): void {

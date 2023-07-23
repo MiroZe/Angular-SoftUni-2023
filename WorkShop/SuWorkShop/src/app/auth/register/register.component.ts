@@ -5,6 +5,7 @@ import { appEmailValidator } from 'src/app/shared/validators/app-email-validator
 import { matchPasswordsValidator } from 'src/app/shared/validators/match-paswwords-validator';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { MessageBusService, MessageType } from 'src/app/core/message-bus.service';
 
 @Component({
   selector: 'app-register',
@@ -27,20 +28,21 @@ export class RegisterComponent {
   })
 
 
-  constructor(private fb:FormBuilder, private authService : AuthService, private router: Router) {}
+  constructor(private fb:FormBuilder, private authService : AuthService, private router: Router, 
+    private messageBus: MessageBusService) {}
 
 
   register() {
     if(this.registerForm.invalid) {return};
 
-    console.log(this.registerForm.value);
+    
     
 
     const {username,email, passGroup : {password, rePassword} = {},tel} = this.registerForm.value
     this.authService.register(username!,email!,password!,rePassword!,tel || undefined)
     .subscribe(user =>{
-      
-      this.router.navigate(['/home'])
+      this.messageBus.notifyForMessage({text: 'Successfully registartion', type: MessageType.Error})
+      this.router.navigate(['/'])
     }
     );
     
