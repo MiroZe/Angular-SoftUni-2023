@@ -24,7 +24,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription =this.messageBus.onNewMessage$.subscribe(newMessage => {
      this.message = newMessage?.text || '';
-     this.isMessageError = newMessage?.type === MessageType.Error
+     this.isMessageError = newMessage?.type === MessageType.Error;
+     console.log(this.isMessageError);
+     
 
      if (this.message) {
 

@@ -41,7 +41,7 @@ export class RegisterComponent {
     const {username,email, passGroup : {password, rePassword} = {},tel} = this.registerForm.value
     this.authService.register(username!,email!,password!,rePassword!,tel || undefined)
     .subscribe(user =>{
-      this.messageBus.notifyForMessage({text: 'Successfully registartion', type: MessageType.Error})
+      this.messageBus.notifyForMessage({text: 'Successfully registartion', type: MessageType.Success})
       this.router.navigate(['/'])
     }
     );
